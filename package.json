@@ -1,0 +1,29 @@
+{
+  "name": "string-class",
+  "version": "1.0.0",
+  "description": "An application that extends the String class and adds more string manipulation features",
+  "main": "string.js",
+  "dependencies": {
+    "mocha": "^3.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andela-jare/string-class.git"
+  },
+  "keywords": [
+    "string",
+    "javascript",
+    "prototype",
+    "regex"
+  ],
+  "author": "Jorg Are",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andela-jare/string-class/issues"
+  },
+  "homepage": "https://github.com/andela-jare/string-class#readme"
+}
