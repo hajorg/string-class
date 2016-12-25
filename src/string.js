@@ -102,7 +102,45 @@ const StringExtension = {
       return `${this[Math.floor(len / 2) - 1]}${this[Math.floor(len / 2)]}`;
     }
     return this[Math.floor(len / 2)];
+  },
+
+  /**
+   * Returns the numbers in words e.g 325 should return three two five.
+   * @returns {String}
+   */
+  numberWords() {
+    const numbers = {
+      0: 'zero',
+      1: 'one',
+      2: 'two',
+      3: 'three',
+      4: 'four',
+      5: 'five',
+      6: 'six',
+      7: 'seven',
+      8: 'eight',
+      9: 'nine',
+      10: 'ten'
+    };
+    return this.replace(/\d/g, x => `${numbers[x]} `).trim();
+  },
+
+   /**
+   * Checks if string is single digit
+   * @return {Boolean}
+   */
+  isDigit() {
+    return /^\d{1}$/.test(this);
+  },
+
+  /**
+   * Returns true if a string contains double characters(including whitespace character)
+   * @return {Boolean}
+   */
+  doubleCheck() {
+    return /(.)\1/.test(this);
   }
+
 };
 Object.assign(String.prototype, StringExtension);
 module.exports = StringExtension;
