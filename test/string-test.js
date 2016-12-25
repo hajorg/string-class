@@ -1,16 +1,18 @@
 /* eslint no-unused-expressions: 0 */
 const chai = require('chai');
 const expect = require('chai').expect;
+require('../src/string.js');
 
 const deepEqual = chai.deepEqual;
+
 describe('String class', () => {
   describe('hasVowel', () => {
     it('should return true if a vowel is present in the string', () => {
-      expect('boy'.hasVowels).to.be.true;
+      expect('boy'.hasVowels()).to.be.true;
     });
 
     it('should return false if a vowel is not present in the string', () => {
-      expect('fly'.hasVowels).to.be.false;
+      expect('fly'.hasVowels()).to.be.false;
     });
   });
 
@@ -36,7 +38,7 @@ describe('String class', () => {
 
   describe('ucFirst', () => {
     it('should return uppercase for first letter in a string', () => {
-      expect('boy'.toLower()).to.equal('Boy');
+      expect('boy'.ucFirst()).to.equal('Boy');
     });
   });
 
