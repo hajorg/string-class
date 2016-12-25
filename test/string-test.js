@@ -1,10 +1,9 @@
 /* eslint no-unused-expressions: 0 */
 const chai = require('chai');
 const expect = require('chai').expect;
+
 const deepEqual = chai.deepEqual;
-
 describe('String class', () => {
-
   describe('hasVowel', () => {
     it('should return true if a vowel is present in the string', () => {
       expect('boy'.hasVowels).to.be.true;
@@ -54,7 +53,7 @@ describe('String class', () => {
   describe('words', () => {
     it('should return words present in a string', () => {
       expect('Am I a boy?'.words()).to.deep.equal(['Am', 'I', 'a', 'boy']);
-      expect('Is there woods? in the forest'.words()).eql(['Is', 'there', 'woods', 'in', 'the', 'forest' ]);
+      expect('Is there woods? in the forest'.words()).eql(['Is', 'there', 'woods', 'in', 'the', 'forest']);
       expect('Life is good'.words()).to.be.an('array');
     });
   });
