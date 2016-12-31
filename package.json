@@ -12,10 +12,12 @@
     "eslint-config-airbnb": "^13.0.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
-    "eslint-plugin-react": "^6.8.0"
+    "eslint-plugin-react": "^6.8.0",
+    "istanbul": "^0.4.5"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "./node_modules/istanbul/lib/cli.js cover ./node_modules/.bin/_mocha ./test/*.js",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
   },
   "repository": {
     "type": "git",
