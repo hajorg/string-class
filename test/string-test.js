@@ -69,14 +69,15 @@ describe('String class', () => {
 
   describe('toCurrency', () => {
     it('should return a number in a currency format', () => {
-      expect('11111'.toCurrency()).equal('11,111');
-      expect('123456789'.toCurrency()).equal('123,456,789');
+      expect('11111'.toCurrency()).equal('11,111.00');
+      expect('11111.11'.toCurrency()).equal('11,111.11');
+      expect('123456789'.toCurrency()).equal('123,456,789.00');
     });
   });
 
   describe('fromCurrency', () => {
     it('should return a number in a currency format', () => {
-      expect('11,111'.fromCurrency()).equal(11111);
+      expect('11,111.11'.fromCurrency()).equal(11111.11);
       expect('123,456,789'.fromCurrency()).equal(123456789);
     });
   });

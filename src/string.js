@@ -62,8 +62,15 @@ const StringExtension = {
    * @returns {String}
    */
   toCurrency() {
-    return this.replace(/./g, (char, index, arr) =>
-      (index && char !== '.' && ((arr.length - index) % 3 === 0) ? `,${char}` : char));
+    let [number, decimal] = this.split('.');
+    number = number.replace(/,/g, '');
+    if (!decimal) {
+      decimal = '00';
+    }
+    decimal = decimal.substr(0, 2);
+    const result = number.replace(/./g, (char, index, arr) =>
+      (index && (arr.length - index) % 3 === 0 ? `,${char}` : char));
+    return `${result}.${decimal}`;
   },
 
   /**
@@ -71,7 +78,7 @@ const StringExtension = {
    * @returns {String}
    */
   fromCurrency() {
-    return parseInt(this.replace(/,/g, ''), 10);
+    return parseFloat(this.replace(/,/g, ''), 10);
   },
 
   /**
@@ -80,7 +87,7 @@ const StringExtension = {
    */
   inverseCase() {
     return this.replace(/[a-zA-Z]/g, char =>
-      (char === char.toLower() ? char.toUpper() : char.toLower()));
+      (/[a-z]/.test(char) ? char.toUpper() : char.toLower()));
   },
 
   /**
@@ -98,10 +105,11 @@ const StringExtension = {
    */
   getMiddle() {
     const len = this.length;
+    const middle = Math.floor(len / 2);
     if (len % 2 === 0) {
-      return `${this[Math.floor(len / 2) - 1]}${this[Math.floor(len / 2)]}`;
+      return `${this[middle - 1]}${this[middle]}`;
     }
-    return this[Math.floor(len / 2)];
+    return this[middle];
   },
 
   /**
