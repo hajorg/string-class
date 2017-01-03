@@ -4,7 +4,7 @@ const StringExtension = {
    * @returns {Boolean}
    */
   hasVowels() {
-    return /[aeiou]/.test(this);
+    return /[aeiou]/i.test(this);
   },
 
    /**
@@ -38,7 +38,7 @@ const StringExtension = {
    * @return {Boolean}
    */
   isQuestion() {
-    return /\?$/.test(this);
+    return /\?$/.test(this.trim());
   },
 
   /**

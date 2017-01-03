@@ -44,7 +44,7 @@ describe('String class', () => {
 
   describe('isQuestion', () => {
     it('should return true for a valid question', () => {
-      expect('Am I a boy?'.isQuestion()).to.be.true;
+      expect('Am I a boy? '.isQuestion()).to.be.true;
     });
 
     it('should return false for an invalid question', () => {
