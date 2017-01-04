@@ -15,15 +15,22 @@ describe('String class', () => {
     it('should return false if a vowel is not present in the string', () => {
       expect('fly'.hasVowels()).to.be.false;
     });
+
+    it('should return true for strings that has vowels irrespective of the case', () => {
+      expect('AndEla'.hasVowels()).to.be.true;
+      expect('Apple'.hasVowels()).to.be.true;
+    });
   });
 
   describe('toUpper', () => {
     it('should return uppercase for all characters in a string', () => {
       expect('boy'.toUpper()).to.equal('BOY');
+      expect('Event'.toUpper()).to.equal('EVENT');
     });
 
-    it('should return uppercase for all characters in a string', () => {
-      expect('Goodison PARK'.toUpper()).to.equal('GOODISON PARK');
+    it('should convert strings with title case to uppercase', () => {
+      expect('David'.toUpper()).to.equal('DAVID');
+      expect('Lady'.toUpper()).to.equal('LADY');
     });
   });
 
