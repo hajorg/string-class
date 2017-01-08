@@ -81,6 +81,9 @@ describe('String class', () => {
       expect('11111.11'.toCurrency()).equal('11,111.11');
       expect('123456789'.toCurrency()).equal('123,456,789.00');
     });
+    it('should return a message if user input is invalid', () => {
+      expect('1111ty'.toCurrency()).equal('Invalid input an interger is required');
+    })
   });
 
   describe('fromCurrency', () => {
