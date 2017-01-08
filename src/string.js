@@ -65,7 +65,7 @@ const StringExtension = {
     let [number, decimal] = this.split('.');
     number = number.replace(/,/g, '');
     if (! /^\d*$/.test(number)) {
-      return 'invalid format';
+      return 'Invalid input an interger is required';
     }
     if (!decimal) {
       decimal = '00';

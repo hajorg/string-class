@@ -1,22 +1,5 @@
 angular.module('stringClass', []).
   controller('stringCtrl', ['$scope', ($scope) => {
-    // $scope.methods = [
-    //   'hasVowels',
-    //   'toUpper',
-    //   'tolower',
-    //   'ucFirst',
-    //   'isQuestion',
-    //   'word',
-    //   'wordCount',
-    //   'toCurrency',
-    //   'fromCurrency',
-    //   'inverseCase',
-    //   'alternatingCase',
-    //   'getMiddle',
-    //   'numberWords',
-    //   'isDigit',
-    //   'doubleCheck'
-    // ];
     $scope.methods = [{ id: 0, label: 'hasVowels' },
     { id: 1, label: 'toUpper' },
     { id: 2, label: 'toLower' },
@@ -33,9 +16,13 @@ angular.module('stringClass', []).
     { id: 13, label: 'toCurrency' },
     { id: 14, label: 'fromCurrency' }];
 
-    $scope.caller = () => {
-      const str1 = $scope.userInput;
+    $scope.stringExtension = () => {
+      const input = $scope.userInput;
       const method = $scope.selectedMethod.label;
-      $scope.result = str1[method]();
+      if (!input) {
+        $scope.result = "Please, enter a valid input!";
+        return;
+      }
+      $scope.result = input[method]();
     }
   }]);
