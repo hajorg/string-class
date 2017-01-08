@@ -64,6 +64,9 @@ const StringExtension = {
   toCurrency() {
     let [number, decimal] = this.split('.');
     number = number.replace(/,/g, '');
+    if (! /^\d*$/.test(number)) {
+      return 'invalid format';
+    }
     if (!decimal) {
       decimal = '00';
     }
@@ -94,7 +97,7 @@ const StringExtension = {
    * Returns the letters in alternating cases. It must start with a lower case
    * @returns {String}
    */
-  alternateCase() {
+  alternatingCase() {
     return this.replace(/[a-zA-Z]/g, (char, index) =>
     (index % 2 === 0 ? char.toLower() : char.toUpper()));
   },
@@ -151,4 +154,3 @@ const StringExtension = {
 
 };
 Object.assign(String.prototype, StringExtension);
-module.exports = StringExtension;

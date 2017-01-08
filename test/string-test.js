@@ -97,10 +97,10 @@ describe('String class', () => {
     });
   });
 
-  describe('alternateCase', () => {
+  describe('alternatingCase', () => {
     it('should return the letters in alternating cases', () => {
-      expect('Mr. Ben'.alternateCase()).equal('mR. bEn');
-      expect('Onomatopoeia'.alternateCase()).equal('oNoMaToPoEiA');
+      expect('Mr. Ben'.alternatingCase()).equal('mR. bEn');
+      expect('Onomatopoeia'.alternatingCase()).equal('oNoMaToPoEiA');
     });
   });
 
