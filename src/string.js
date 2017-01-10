@@ -1,7 +1,7 @@
 const StringExtension = {
   /**
    * Returns true if the string contains vowels.
-   * @returns {Boolean}
+   * @return {Boolean}
    */
   hasVowels() {
     return /[aeiou]/i.test(this);
@@ -9,7 +9,7 @@ const StringExtension = {
 
    /**
    * Returns the String in question but with all characters in upper cases as applicable.
-   * @returns {String}
+   * @return {String}
    */
   toUpper() {
     return this.replace(/[a-z]/g,
@@ -18,7 +18,7 @@ const StringExtension = {
 
   /**
   * Returns the String passed as lower cases
-  * @returns {String}
+  * @return {String}
   */
   toLower() {
     return this.replace(/[A-Z]/g,
@@ -51,7 +51,7 @@ const StringExtension = {
 
   /**
    * Returns the number of words in the string
-   * @returns {Number}
+   * @return {Number}
    */
   wordCount() {
     return this.words().length;
@@ -59,34 +59,35 @@ const StringExtension = {
 
   /**
    * Returns a currency representation of the String
-   * @returns {String}
+   * @return {String}
    */
   toCurrency() {
-    let [number, decimal] = this.split('.');
-    number = number.replace(/,/g, '');
-    if (! /^\d*$/.test(number)) {
-      return 'Invalid input an interger is required';
+    try {
+      const number = Number(this).toFixed(2);
+      if (isNaN(number)) throw new Error('invalid input');
+      return number.replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+    } catch (err) {
+      return err.message;
     }
-    if (!decimal) {
-      decimal = '00';
-    }
-    decimal = decimal.substr(0, 2);
-    const result = number.replace(/./g, (char, index, arr) =>
-      (index && (arr.length - index) % 3 === 0 ? `,${char}` : char));
-    return `${result}.${decimal}`;
   },
 
   /**
    * Returns a number representation of the Currency String
-   * @returns {String}
+   * @return {String}
    */
   fromCurrency() {
-    return parseFloat(this.replace(/,/g, ''), 10);
+    try {
+      const result = Number(this.replace(/,/g, ''), 10);
+      if (isNaN(result)) throw new Error('invalid input');
+      return result;
+    } catch (e) {
+      return (e.message);
+    }
   },
 
   /**
    * Returns each letter in the string as an inverse of its current case
-   * @returns {String}
+   * @return {String}
    */
   inverseCase() {
     return this.replace(/[a-zA-Z]/g, char =>
@@ -95,7 +96,7 @@ const StringExtension = {
 
   /**
    * Returns the letters in alternating cases. It must start with a lower case
-   * @returns {String}
+   * @return {String}
    */
   alternatingCase() {
     return this.replace(/[a-zA-Z]/g, (char, index) =>
@@ -104,7 +105,7 @@ const StringExtension = {
 
   /**
    * Returns the character(s) in the middle of the string
-   * @returns {String}
+   * @return {String}
    */
   getMiddle() {
     const len = this.length;
@@ -117,7 +118,7 @@ const StringExtension = {
 
   /**
    * Returns the numbers in words e.g 325 should return three two five.
-   * @returns {String}
+   * @return {String}
    */
   numberWords() {
     const numbers = {
@@ -133,7 +134,8 @@ const StringExtension = {
       9: 'nine',
       10: 'ten'
     };
-    return this.replace(/\d/g, x => `${numbers[x]} `).trim();
+    const string = this.replace(/[^\d]/g, '');
+    return string.replace(/\d/g, x => `${numbers[x]} `).trim();
   },
 
    /**

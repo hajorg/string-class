@@ -82,14 +82,17 @@ describe('String class', () => {
       expect('123456789'.toCurrency()).equal('123,456,789.00');
     });
     it('should return a message if user input is invalid', () => {
-      expect('1111ty'.toCurrency()).equal('Invalid input an interger is required');
-    })
+      expect('1111ty'.toCurrency()).equal('invalid input');
+    });
   });
 
   describe('fromCurrency', () => {
     it('should return a number in a currency format', () => {
       expect('11,111.11'.fromCurrency()).equal(11111.11);
       expect('123,456,789'.fromCurrency()).equal(123456789);
+    });
+    it('should return a message if user input is invalid', () => {
+      expect('1111ty'.fromCurrency()).equal('invalid input');
     });
   });
 
