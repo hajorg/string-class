@@ -20,11 +20,11 @@ angular.module('stringClass', []).
       const input = $scope.userInput;
       const method = $scope.selectedMethod.label;
       if (!input) {
-        $scope.result = "Please, enter a valid input!";
+        $scope.result = 'Please, enter a valid input!';
         return;
       }
       $scope.result = input[method]();
-    }
+    };
   }]);
 // Get the modal
 const modal = document.getElementById('myModal');
@@ -32,18 +32,18 @@ const modal = document.getElementById('myModal');
 const about = document.getElementById('about');
 // Get the <span> element that closes the modal
 const span = document.getElementsByClassName('close')[0];
-// When the user clicks the button, open the modal 
+// When the user clicks the button, open the modal
 about.onclick = (event) => {
   event.preventDefault();
   modal.style.display = 'block';
-}
+};
 // When the user clicks on <span> (x), close the modal
 span.onclick = () => {
   modal.style.display = 'none';
-}
+};
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = (event) => {
-  if (event.target == modal) {
+  if (event.target === modal) {
     modal.style.display = 'none';
   }
-}
+};
