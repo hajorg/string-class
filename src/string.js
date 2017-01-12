@@ -1,15 +1,17 @@
 const StringExtension = {
   /**
    * Returns true if the string contains vowels.
-   * @return {Boolean}
+   * @return {Boolean} - True if this String contains a vowel
+   * otherwise False.
    */
   hasVowels() {
     return /[aeiou]/i.test(this);
   },
 
    /**
-   * Returns the String in question but with all characters in upper cases as applicable.
-   * @return {String}
+   * Returns the String in question but with
+   *  all characters in upper cases as applicable.
+   * @return {String} - String that has been converted to uppercase
    */
   toUpper() {
     return this.replace(/[a-z]/g,
@@ -18,7 +20,7 @@ const StringExtension = {
 
   /**
   * Returns the String passed as lower cases
-  * @return {String}
+  * @return {String} - string that has been converted to lowercase
   */
   toLower() {
     return this.replace(/[A-Z]/g,
@@ -27,7 +29,7 @@ const StringExtension = {
 
   /**
    * converts strings to title case
-   * @return {String} string that has been converted to title case
+   * @return {String} - string that has been converted to title case
    */
   ucFirst() {
     return this.replace(/^(.)/, this[0].toUpper());
@@ -35,7 +37,7 @@ const StringExtension = {
 
   /**
    * Checks if the string is a question
-   * @return {Boolean}
+   * @return {Boolean} - true or false depending on the match
    */
   isQuestion() {
     return /\?$/.test(this.trim());
@@ -43,7 +45,7 @@ const StringExtension = {
 
   /**
    * checks for words in a string
-   * @return {Array}
+   * @return {Array} - returns array of words in the string
    */
   words() {
     return this.match(/\w+/g);
@@ -51,7 +53,7 @@ const StringExtension = {
 
   /**
    * Returns the number of words in the string
-   * @return {Number}
+   * @return {Number} - the number of words in the string
    */
   wordCount() {
     return this.words().length;
@@ -59,7 +61,7 @@ const StringExtension = {
 
   /**
    * Returns a currency representation of the String
-   * @return {String}
+   * @return {String} - currency representation of the the number in String
    */
   toCurrency() {
     try {
@@ -73,7 +75,7 @@ const StringExtension = {
 
   /**
    * Returns a number representation of the Currency String
-   * @return {String}
+   * @return {Number} - number representation of the currency String
    */
   fromCurrency() {
     try {
@@ -87,7 +89,7 @@ const StringExtension = {
 
   /**
    * Returns each letter in the string as an inverse of its current case
-   * @return {String}
+   * @return {String} - inverse case of each character of the String
    */
   inverseCase() {
     return this.replace(/[a-zA-Z]/g, char =>
@@ -96,7 +98,7 @@ const StringExtension = {
 
   /**
    * Returns the letters in alternating cases. It must start with a lower case
-   * @return {String}
+   * @return {String} - alternate case of characters in the String
    */
   alternatingCase() {
     return this.replace(/[a-zA-Z]/g, (char, index) =>
@@ -105,7 +107,7 @@ const StringExtension = {
 
   /**
    * Returns the character(s) in the middle of the string
-   * @return {String}
+   * @return {String} - middle character(s) of the String
    */
   getMiddle() {
     const len = this.length;
@@ -118,7 +120,7 @@ const StringExtension = {
 
   /**
    * Returns the numbers in words e.g 325 should return three two five.
-   * @return {String}
+   * @return {String} - String representation of a number
    */
   numberWords() {
     const numbers = {
@@ -140,15 +142,16 @@ const StringExtension = {
 
    /**
    * Checks if string is single digit
-   * @return {Boolean}
+   * @return {Boolean} - True of false depending on the match
    */
   isDigit() {
     return /^\d{1}$/.test(this);
   },
 
   /**
-   * Returns true if a string contains double characters(including whitespace character)
-   * @return {Boolean}
+   * Returns true if a string contains
+   *  double characters(including whitespace character)
+   * @return {Boolean} - True of false depending on the match
    */
   doubleCheck() {
     return /(.)\1/.test(this);

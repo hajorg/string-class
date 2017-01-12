@@ -20,6 +20,7 @@
     "no-param-reassign": 0,
     "comma-dangle": 0,
     "no-shadow": [0, { "allow": ["req", "res", "err"] }],
+    "max-len": [2, 80, 2],
     "valid-jsdoc": [0, {
       "requireReturn": true,
       "requireReturnType": true,

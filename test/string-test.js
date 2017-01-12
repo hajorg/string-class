@@ -16,7 +16,8 @@ describe('String class', () => {
       expect(word.hasVowels()).to.be.false;
     });
 
-    it('should return true for strings that has vowels irrespective of the case', () => {
+    it(`should return true for strings that
+     has vowels irrespective of the case`, () => {
       const word = 'AndEla';
       const word2 = 'Apple';
       expect(word.hasVowels()).to.be.true;
@@ -114,7 +115,8 @@ describe('String class', () => {
   });
 
   describe('inverseCase', () => {
-    it('should returns each letter in the string as an inverse of its current case', () => {
+    it(`should returns each letter in the string
+     as an inverse of its current case`, () => {
       const word = 'Mr. Ben';
       const word2 = 'I am Invisible 10 times';
       expect(word.inverseCase()).equal('mR. bEN');
@@ -165,14 +167,16 @@ describe('String class', () => {
   });
 
   describe('doubleCheck', () => {
-    it('should return true if a string contains double characters(including whitespace character)', () => {
+    it(`should return true if a string contains
+     double characters(including whitespace character)`, () => {
       const characters = 'aa';
       const characters2 = '!!';
-      expect('aa'.doubleCheck()).equal(true);
-      expect('!!'.doubleCheck()).equal(true);
+      expect(characters.doubleCheck()).equal(true);
+      expect(characters2.doubleCheck()).equal(true);
     });
 
-    it('should return false if a string does not contain double character', () => {
+    it(`should return false if a string
+     does not contain double character`, () => {
       const characters = 'abcde';
       expect(characters.doubleCheck()).equal(false);
     });
