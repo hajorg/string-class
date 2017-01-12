@@ -22,22 +22,24 @@ An extension of the javascript String class. Using Prototype Oriented Programmin
 13. numberWords - Returns the numbers in words e.g 325 should return three two five
 14. isDigit - Returns a Boolean. True if the String is a digit(one number), otherwise False
 15. doubleCheck - Returns a Boolean. True if the String contains double characters(including whitespace character), otherwise False.
-#### Contributing
 
+#### Contributing
 - Fork this repository to your GitHub account
 - Clone the forked repository
 - Create your feature branch
 - Commit your changes
 - Push to the remote branch
 - Open a Pull Request
+
 #### Technologies
 string class is implemented using a number of technologies:
 - node.js - evented I/O for the backend
 - mocha - to automate testing
+
 #### How to use
 - Add to your HTML script tag
 - Call the methods from your front-end web app
+
 #### Limitations
 - It assumes the user has basic familiarity with the technologies used
 - It implements just a few of several custom features that can be added to the String class
-

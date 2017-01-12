@@ -1,5 +1,6 @@
-angular.module('stringClass', []).
-  controller('stringCtrl', ['$scope', ($scope) => {
+/* eslint no-undef: 0 */
+angular.module('stringClass', []).controller('stringCtrl',
+  ['$scope', ($scope) => {
     $scope.methods = [{ id: 0, label: 'hasVowels' },
     { id: 1, label: 'toUpper' },
     { id: 2, label: 'toLower' },
@@ -23,7 +24,11 @@ angular.module('stringClass', []).
         $scope.result = 'Please, enter a valid input!';
         return;
       }
-      $scope.result = input[method]();
+      try {
+        $scope.result = input[method]();
+      } catch (err) {
+        $scope.result = err.message;
+      }
     };
   }]);
 // Get the modal

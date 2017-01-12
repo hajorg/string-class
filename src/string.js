@@ -40,7 +40,7 @@ const StringExtension = {
    * @return {Boolean} - true or false depending on the match
    */
   isQuestion() {
-    return /\?$/.test(this.trim());
+    return /^\w+.+\?$/.test(this.trim());
   },
 
   /**
@@ -64,13 +64,13 @@ const StringExtension = {
    * @return {String} - currency representation of the the number in String
    */
   toCurrency() {
-    try {
-      const number = Number(this).toFixed(2);
-      if (isNaN(number)) throw new Error('invalid input');
-      return number.replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
-    } catch (err) {
-      return err.message;
-    }
+    // try {
+    const number = Number(this).toFixed(2);
+    if (isNaN(number)) throw new Error('invalid input');
+    return number.replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+    // } catch (err) {
+      // return err.message;
+    // }
   },
 
   /**
@@ -78,13 +78,9 @@ const StringExtension = {
    * @return {Number} - number representation of the currency String
    */
   fromCurrency() {
-    try {
-      const result = Number(this.replace(/,/g, ''), 10);
-      if (isNaN(result)) throw new Error('invalid input');
-      return result;
-    } catch (e) {
-      return (e.message);
-    }
+    const result = Number(this.replace(/,/g, ''), 10);
+    if (isNaN(result)) throw new Error('invalid input');
+    return result;
   },
 
   /**
@@ -112,10 +108,7 @@ const StringExtension = {
   getMiddle() {
     const len = this.length;
     const middle = Math.floor(len / 2);
-    if (len % 2 === 0) {
-      return `${this[middle - 1]}${this[middle]}`;
-    }
-    return this[middle];
+    return len % 2 === 0 ? `${this[middle - 1]}${this[middle]}` : this[middle];
   },
 
   /**
@@ -133,8 +126,7 @@ const StringExtension = {
       6: 'six',
       7: 'seven',
       8: 'eight',
-      9: 'nine',
-      10: 'ten'
+      9: 'nine'
     };
     const string = this.replace(/[^\d]/g, '');
     return string.replace(/\d/g, x => `${numbers[x]} `).trim();

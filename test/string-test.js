@@ -95,9 +95,9 @@ describe('String class', () => {
       expect(currency2.toCurrency()).equal('11,111.11');
       expect(currency3.toCurrency()).equal('123,456,789.00');
     });
-    it('should return a message if user input is invalid', () => {
+    it('should throw an error if user input is invalid', () => {
       const currency = '1111ty';
-      expect(currency.toCurrency()).equal('invalid input');
+      expect(() => currency.toCurrency()).to.throw('invalid input');
     });
   });
 
@@ -108,9 +108,9 @@ describe('String class', () => {
       expect(currency.fromCurrency()).equal(11111.11);
       expect(currency2.fromCurrency()).equal(123456789);
     });
-    it('should return a message if user input is invalid', () => {
+    it('should throw an error if user input is invalid', () => {
       const currency = '1111ty';
-      expect(currency.fromCurrency()).equal('invalid input');
+      expect(() => currency.fromCurrency()).to.throw('invalid input');
     });
   });
 
@@ -149,8 +149,10 @@ describe('String class', () => {
     it('should return the numbers in words', () => {
       const number = '325';
       const number2 = '98';
+      const number3 = 'I am 8';
       expect(number.numberWords()).equal('three two five');
       expect(number2.numberWords()).equal('nine eight');
+      expect(number3.numberWords()).equal('eight');
     });
   });
 
@@ -171,8 +173,10 @@ describe('String class', () => {
      double characters(including whitespace character)`, () => {
       const characters = 'aa';
       const characters2 = '!!';
+      const characters3 = '  ';
       expect(characters.doubleCheck()).equal(true);
       expect(characters2.doubleCheck()).equal(true);
+      expect(characters3.doubleCheck()).equal(true);
     });
 
     it(`should return false if a string
