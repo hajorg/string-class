@@ -65,7 +65,9 @@ describe('String class', () => {
 
     it('should return false for an invalid question', () => {
       const word = 'Is there wood? in the forest';
+      const word2 = '$%%@*?';
       expect(word.isQuestion()).to.be.false;
+      expect(word2.isQuestion()).to.be.false;
     });
   });
 
@@ -97,7 +99,9 @@ describe('String class', () => {
     });
     it('should throw an error if user input is invalid', () => {
       const currency = '1111ty';
+      const currency2 = '1111';
       expect(() => currency.toCurrency()).to.throw('invalid input');
+      expect(() => currency2.toCurrency()).to.not.throw('invalid input');
     });
   });
 

@@ -40,7 +40,7 @@ const StringExtension = {
    * @return {Boolean} - true or false depending on the match
    */
   isQuestion() {
-    return /^\w+.+\?$/.test(this.trim());
+    return /^\w+[^?]*\?$/.test(this.trim());
   },
 
   /**
@@ -64,13 +64,9 @@ const StringExtension = {
    * @return {String} - currency representation of the the number in String
    */
   toCurrency() {
-    // try {
     const number = Number(this).toFixed(2);
     if (isNaN(number)) throw new Error('invalid input');
     return number.replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
-    // } catch (err) {
-      // return err.message;
-    // }
   },
 
   /**

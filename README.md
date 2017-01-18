@@ -33,13 +33,13 @@ An extension of the javascript String class. Using Prototype Oriented Programmin
 
 #### Technologies
 string class is implemented using a number of technologies:
-- node.js - evented I/O for the backend
-- mocha - to automate testing
+- Javascript(ES6)
+- Node.js
+- Mocha
 
 #### How to use
 - Add to your HTML script tag
 - Call the methods from your front-end web app
 
 #### Limitations
-- It assumes the user has basic familiarity with the technologies used
 - It implements just a few of several custom features that can be added to the String class
