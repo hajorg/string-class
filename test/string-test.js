@@ -1,7 +1,7 @@
 /* eslint no-unused-expressions: 0 */
 /* eslint amd:true */
 const chai = require('chai');
-const expect = require('chai').expect;
+const expect = chai.expect;
 require('../src/string.js');
 
 describe('String class', () => {
